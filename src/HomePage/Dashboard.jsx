@@ -5,9 +5,11 @@ const Dashboard = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        // Check if user is logged in
-        const isLoggedIn = localStorage.getItem('email');
+        // Check if both email and role are present
+        const isLoggedIn = localStorage.getItem('email') && localStorage.getItem('role');
         if (!isLoggedIn) {
+            window.location.reload(); // Reload the entire application
+
             // If user is not logged in, redirect to login page
             navigate('/login');
         }
