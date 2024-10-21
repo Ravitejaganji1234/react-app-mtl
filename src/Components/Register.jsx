@@ -170,7 +170,7 @@ const Register = () => {
                         </label>
                     </form>
 
-                    <p className="text-mute">Already a member? <a href="/login">Login</a></p>
+                    <p className="text-mute">Already a member? <Link to="/login">Login</Link></p>
                 </main>
                 <div className="welcome-container">
                     <h1 className="heading-secondary">Welcome to <span className="lg">MT Buddy!</span></h1>

@@ -52,10 +52,10 @@ export default function Navbar() {
         <header className="bg-white">
             <nav className="flex items-center justify-between p-6 lg:px-8 flex-shrink-0" aria-label="Global">
                 <div className="flex lg:flex-1">
-                    <a href="/dashboard" className="-m-1.5 p-1.5">
+                    <Link to="/dashboard" className="-m-1.5 p-1.5">
                         <span className="sr-only">Middleware</span>
                         <img className="h-8 w-auto" alt="Middleware" />
-                    </a>
+                    </Link>
                 </div>
                 <div className="flex lg:hidden">
                     <button
@@ -68,9 +68,9 @@ export default function Navbar() {
                     </button>
                 </div>
                 <Popover.Group className="hidden lg:flex lg:gap-x-12">
-                    <a href="/dashboard" className="text-2xl font-semibold leading-6 text-gray-900">
+                    <Link to="/dashboard" className="text-2xl font-semibold leading-6 text-gray-900">
                         Dashboard
-                    </a>
+                    </Link>
                     <Popover className="relative">
                         <Popover.Button className="text-2xl flex items-center gap-x-1 font-semibold leading-6 text-gray-900">
                             Me
@@ -99,10 +99,10 @@ export default function Navbar() {
                                                 <item.icon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
                                             </div>
                                             <div className="flex-auto">
-                                                <a href={item.href} className="block font-semibold text-gray-900">
+                                                <Link to={item.href} className="block font-semibold text-gray-900">
                                                     {item.name}
                                                     <span className="absolute inset-0" />
-                                                </a>
+                                                </Link>
                                                 <p className="mt-1 text-gray-600">{item.description}</p>
                                             </div>
                                         </div>
@@ -115,18 +115,18 @@ export default function Navbar() {
                     {/* Conditional rendering based on role */}
                     {role === 'admin' && (
                         <>
-                            <a href="/employee" className="text-2xl font-semibold leading-6 text-gray-900">
+                            <Link to="/employee" className="text-2xl font-semibold leading-6 text-gray-900">
                                 Employees
-                            </a>
-                            <a href="/documents" className="text-2xl font-semibold leading-6 text-gray-900">
+                            </Link>
+                            <Link to="/documents" className="text-2xl font-semibold leading-6 text-gray-900">
                                 Documents
-                            </a>
-                            <a href="/thanks" className="text-2xl font-semibold leading-6 text-gray-900">
+                            </Link>
+                            <Link to="/thanks" className="text-2xl font-semibold leading-6 text-gray-900">
                                 Thanks
-                            </a>
-                            <a href="/authorizations" className="text-2xl font-semibold leading-6 text-gray-900">
+                            </Link>
+                            <Link to="/authorizations" className="text-2xl font-semibold leading-6 text-gray-900">
                                 Authorizations
-                            </a>
+                            </Link>
                         </>
                     )}
                 </Popover.Group>
@@ -165,22 +165,22 @@ export default function Navbar() {
                             <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                                 <Menu.Item>
                                     {({ active }) => (
-                                        <a
-                                            href="/"
+                                        <Link
+                                            to="/"
                                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-2xl text-gray-500')}
                                         >
                                             Your Profile
-                                        </a>
+                                        </Link>
                                     )}
                                 </Menu.Item>
                                 <Menu.Item>
                                     {({ active }) => (
-                                        <a
-                                            href="/"
+                                        <Link
+                                            to="/"
                                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-2xl text-gray-500')}
                                         >
                                             Settings
-                                        </a>
+                                        </Link>
                                     )}
                                 </Menu.Item>
                                 <Menu.Item>
@@ -204,10 +204,10 @@ export default function Navbar() {
                 <div className="fixed inset-0 z-10" />
                 <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
                     <div className="flex items-center justify-between">
-                        <a href="/dashboard" className="-m-1.5 p-1.5">
+                        <Link to="/dashboard" className="-m-1.5 p-1.5">
                             <span className="sr-only">Middleware</span>
                             <img className="h-8 w-auto" alt="Middleware" />
-                        </a>
+                        </Link>
                         <button
                             type="button"
                             className="-m-2.5 rounded-md p-2.5 text-gray-700"
@@ -220,24 +220,24 @@ export default function Navbar() {
                     <div className="mt-6 flow-root">
                         <div className="-my-6 divide-y divide-gray-500/10">
                             <div className="space-y-2 py-6">
-                                <a
-                                    href="/dashboard"
+                                <Link
+                                    to="/dashboard"
                                     className="-mx-3 block rounded-lg py-2 px-3 text-2xl font-semibold leading-7 text-gray-900 hover:bg-gray-400/10"
                                 >
                                     Dashboard
-                                </a>
-                                <a
-                                    href="/employee"
+                                </Link>
+                                <Link
+                                    to="/employee"
                                     className="-mx-3 block rounded-lg py-2 px-3 text-2xl font-semibold leading-7 text-gray-900 hover:bg-gray-400/10"
                                 >
                                     Employees
-                                </a>
-                                <a
-                                    href="/documents"
+                                </Link>
+                                <Link
+                                    to="/documents"
                                     className="-mx-3 block rounded-lg py-2 px-3 text-2xl font-semibold leading-7 text-gray-900 hover:bg-gray-400/10"
                                 >
                                     Documents
-                                </a>
+                                </Link>
                             </div>
                             <div className="py-6">
                                 <button
