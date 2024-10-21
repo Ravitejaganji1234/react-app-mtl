@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../SharedCSS/SharedCss.css';
 import axios from "axios";
 import Loader from "../Assets/Loader"; // Ensure Loader is correctly imported
@@ -14,6 +14,7 @@ const Register = () => {
     const [passwordError, setPasswordError] = useState("");
     const [loading, setLoading] = useState(false);
     const [emailExistsError] = useState("");
+    const navigate=useNavigate();
 
     useEffect(() => {
         document.title = 'Register: Create an Account';
@@ -100,7 +101,7 @@ const Register = () => {
 
             // Navigate to login page upon successful registration
             if (response.status === 200) {
-                window.location.href = "/login";
+                navigate('/login');
             }
         } catch (err) {
             if (err.response) {
