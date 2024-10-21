@@ -1,9 +1,3 @@
-
-
-
-
-
-
 import React, { useEffect, useState } from 'react';
 import '../SharedCSS/SharedCss.css';
 import { useNavigate } from 'react-router-dom';
