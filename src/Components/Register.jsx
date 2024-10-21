@@ -12,7 +12,7 @@ const Register = () => {
     const [password, setPassword] = useState("");
     const [passwordError, setPasswordError] = useState("");
     const [loading, setLoading] = useState(false);
-    const [emailExistsError, setEmailExistsError] = useState("");
+    const [emailExistsError] = useState("");
 
     useEffect(() => {
         document.title = 'Register: Create an Account';

@@ -13,7 +13,6 @@ import {
 import ModalWrapper from '../EmployeeComponents/ModalWrapper';
 import MultiStepForm from '../EmployeeComponents/MultiStepForm';
 import Loader from "../Assets/Loader";
-import {FunnelIcon, MagnifyingGlassIcon} from "@heroicons/react/16/solid";
 
 export default function Employee() {
     const navigate = useNavigate();

@@ -1,5 +1,5 @@
 import { Fragment, useState, useEffect } from 'react';
-import { Dialog, Disclosure, Popover, Transition, Menu } from '@headlessui/react';
+import { Dialog, Popover, Transition, Menu } from '@headlessui/react';
 import {
     ArrowPathIcon,
     Bars3Icon,
@@ -10,7 +10,7 @@ import {
     XMarkIcon,
 } from '@heroicons/react/24/outline';
 import { ChevronDownIcon, BellIcon } from '@heroicons/react/20/solid';
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Me = [
     { name: 'Overview', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
@@ -185,12 +185,12 @@ export default function Navbar() {
                                 </Menu.Item>
                                 <Menu.Item>
                                     {({ active }) => (
-                                        <a
+                                        <button
                                             onClick={handleSignOut}
                                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-2xl text-gray-500')}
                                         >
                                             Sign out
-                                        </a>
+                                        </button>
                                     )}
                                 </Menu.Item>
                             </Menu.Items>
@@ -240,12 +240,12 @@ export default function Navbar() {
                                 </a>
                             </div>
                             <div className="py-6">
-                                <a
-                                    href="#"
+                                <button
+                                    onClick={handleSignOut} // Call the logout function here
                                     className="-mx-3 block rounded-lg py-2.5 px-3 text-2xl font-semibold leading-6 text-gray-900 hover:bg-gray-400/10"
                                 >
                                     Logout
-                                </a>
+                                </button>
                             </div>
                         </div>
                     </div>
