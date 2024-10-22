@@ -9,8 +9,8 @@ const DocumentUploadForm = ({ formData, onNext, onBack, onCancel, onFormDataChan
         graduationCertificate: null,
     });
 
-    // Initialize error as an object to track multiple errors
     const [error, setError] = useState({});
+    const [submissionMessage, setSubmissionMessage] = useState('');
 
     const handleFileChange = (event, documentType) => {
         const file = event.target.files[0];
@@ -19,7 +19,6 @@ const DocumentUploadForm = ({ formData, onNext, onBack, onCancel, onFormDataChan
             [documentType]: file,
         }));
 
-        // Remove error when file is uploaded
         setError((prevError) => ({
             ...prevError,
             [documentType]: null
@@ -44,13 +43,12 @@ const DocumentUploadForm = ({ formData, onNext, onBack, onCancel, onFormDataChan
             }));
             formHasError = true;
         }
+        // Add checks for other required documents if necessary
 
-        // Stop submission if form has errors
         if (formHasError) {
             return;
         }
 
-        // Prepare FormData
         const formDataToSend = new FormData();
         Object.entries(formData).forEach(([key, value]) => {
             formDataToSend.append(key, value);
@@ -66,7 +64,7 @@ const DocumentUploadForm = ({ formData, onNext, onBack, onCancel, onFormDataChan
                 }
             });
 
-            // Move to success page with credentials
+            setSubmissionMessage('Documents uploaded successfully!');
             onFormDataChange({ credentials: response.data });
             onNext();
 
@@ -78,7 +76,6 @@ const DocumentUploadForm = ({ formData, onNext, onBack, onCancel, onFormDataChan
             }));
         }
     };
-
 
     return (
         <>
@@ -94,8 +91,7 @@ const DocumentUploadForm = ({ formData, onNext, onBack, onCancel, onFormDataChan
 
                             {/* National Card */}
                             <div className="col-span-full">
-                                <label htmlFor="national-card"
-                                       className="block text-sm font-medium leading-6 text-gray-900">
+                                <label htmlFor="national-card" className="block text-sm font-medium leading-6 text-gray-900">
                                     National Card <span className="text-red-600">*</span>
                                 </label>
                                 <div className="mt-2 flex items-center">
@@ -133,13 +129,14 @@ const DocumentUploadForm = ({ formData, onNext, onBack, onCancel, onFormDataChan
                                 </div>
                             </div>
 
-                            {/* 10th Grade Certificate */}
-                            {/* Similar code structure for other document uploads */}
+                            {/* Add similar code structures for other documents, e.g., tenthCertificate, twelfthCertificate, graduationCertificate */}
+
                         </div>
                     </div>
                 </div>
 
                 {error.submission && <p className="text-red-500 text-sm mt-2">{error.submission}</p>}
+                {submissionMessage && <p className="text-green-500 text-sm mt-2">{submissionMessage}</p>}
 
                 <div className="mt-6 flex items-center justify-end gap-x-6">
                     <button type="button" className="text-sm font-semibold leading-6 text-gray-900" onClick={onBack}>
