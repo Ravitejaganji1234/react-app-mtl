@@ -26,7 +26,6 @@ const Login = () => {
             setError('* Both email and password are required');
             return;
         }
-
         setLoading(true);
 
         try {
